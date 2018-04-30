@@ -1,4 +1,5 @@
 import Base64 from 'slate-base64-serializer'
+import { IS_IE } from 'slate-dev-environment'
 
 import TRANSFER_TYPES from '../constants/transfer-types'
 
@@ -26,7 +27,8 @@ const FRAGMENT_MATCHER = / data-slate-fragment="([^\s"]+)"/
  */
 
 function getEventTransfer(event) {
-  if (event.nativeEvent) {
+  //COMPAT: IE
+  if (event.nativeEvent && !IS_IE) {
     event = event.nativeEvent
   }
 
