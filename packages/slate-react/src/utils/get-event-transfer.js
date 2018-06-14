@@ -30,7 +30,7 @@ function getEventTransfer(event) {
   // dataTransfer or clipboardData. We'll need to use the base event
   // object (2018/14/6)
   if (!IS_IE && event.nativeEvent) {
-    event = event.nativeEvent;
+    event = event.nativeEvent
   }
 
   const transfer = event.dataTransfer || event.clipboardData
